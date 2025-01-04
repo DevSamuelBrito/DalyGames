@@ -1,5 +1,5 @@
 import { Container } from "@/components/Container";
-
+import  {GameCard} from "@/components/GameCard";
 import Link from "next/link";
 import Image from "next/image";
 import { GamesProps } from "@/utils/types/game";
@@ -18,8 +18,20 @@ async function getDalyGame() {
   }
 }
 
+async function getDalyGameData() {
+  try {
+    const res = await fetch(`${process.env.NEXT_API_URl}/next-api/?api=games`, {
+      next: { revalidate: 320 },
+    });
+    return res.json();
+  } catch (error) {
+    throw new Error("Erro ao buscar os dados");
+  }
+}
+
 export default async function Home() {
   const dalyGame: GamesProps = await getDalyGame();
+  const data: GamesProps[] = await getDalyGameData();
 
   return (
     <main className="w-full">
@@ -40,7 +52,7 @@ export default async function Home() {
                 priority={true}
                 quality={100}
                 alt={dalyGame.title}
-                className="max-h-96 object-cover rounded-lg opacity-50 hover:opacity-100 transition-all duration-300"
+                className="max-h-96 object-cover rounded-lg opacity-70 hover:opacity-100 transition-all duration-300"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200) 44vw"
                 fill={true}
               ></Image>
@@ -48,6 +60,13 @@ export default async function Home() {
           </section>
         </Link>
         <Input />
+
+        <h2 className="text-lg font-bold mt-8 mb-5">Jogos para conhecer</h2>
+        <section className="grid gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {data.map((item) => (
+            <GameCard key={item.id} data={item}></GameCard>
+          ))}
+        </section>
       </Container>
     </main>
   );
