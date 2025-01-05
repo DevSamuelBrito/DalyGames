@@ -2,6 +2,14 @@ import { Container } from "@/components/Container";
 import userImg from "../../../public/user.png";
 import { FaShareAlt } from "react-icons/fa";
 import Image from "next/image";
+import { FavoriteCard } from "./components/favoriteCard";
+import { Metadata } from "next";
+
+
+export const metadata:Metadata ={
+    title: "Perfil - DailyGames",
+    description: "Veja seu perfil no DalyGames",
+}
 
 export default function Profile() {
   return (
@@ -23,6 +31,17 @@ export default function Profile() {
             <button className="bg-gray-700 rounded-xl px-4 py-3">
               <FaShareAlt size={24} color="#FFF" />
             </button>
+          </div>
+        </section>
+        <section className="flex flex-wrap gap-5 flex-col sm:flex-row">
+          <div className="flex-grow flex-wrap">
+            <FavoriteCard />
+          </div>
+          <div className="flex-grow flex-wrap">
+            <FavoriteCard />
+          </div>
+          <div className="flex-grow flex-wrap">
+            <FavoriteCard />
           </div>
         </section>
       </Container>
