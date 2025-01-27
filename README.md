@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DalyGames
 
-## Getting Started
+DalyGames é uma aplicação web desenvolvida com Next.js para descobrir, explorar e gerenciar jogos. A aplicação permite aos usuários buscar jogos, visualizar detalhes de jogos específicos e gerenciar seu perfil com jogos favoritos.
+Projeto Foi desenvolido para melhor entendimento e praticar o uso de APIs.
 
-First, run the development server:
+## Funcionalidades
+
+### Página Inicial
+
+A página inicial (`src/app/page.tsx`) exibe um jogo do dia e uma lista de jogos recomendados. Utiliza componentes como `Container`, `GameCard` e `Input`.
+
+### Perfil do Usuário
+
+A página de perfil (`src/app/profile/page.tsx`) exibe informações do usuário e permite adicionar jogos favoritos. Utiliza componentes como `FavoriteCard`.
+
+### Busca de Jogos
+
+A página de busca de jogos (`src/app/game/search/[title]/page.tsx`) permite buscar jogos por título e exibe os resultados da busca.
+
+### Detalhes do Jogo
+
+A página de detalhes do jogo (`src/app/game/[id]/page.tsx`) exibe detalhes de um jogo específico, incluindo plataformas, categorias e jogos recomendados.
+
+## Como Executar
+
+Primeiro, certifique-se de que a API necessária para o projeto está configurada e em execução.
+
+Em seguida, instale as dependências:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Agora, execute o projeto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Imagens do Projeto
 
-## Learn More
+Página Inicial que mostra o jogo do dia para o Usuário:
+![Página Inicial](public/home.jpg)
 
-To learn more about Next.js, take a look at the following resources:
+Tela do Jogo com as informações do jogo Selecionado:
+![Página Inicial](public/imagem.jpg)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Tela de Pesquisa de Jogo:
+![Página Inicial](public/pesquisa.jpg)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Demonstração de como a página fica no mobile:
+![Página Inicial](public/mobile.jpg)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
